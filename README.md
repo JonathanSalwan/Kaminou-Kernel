@@ -31,6 +31,6 @@ Features supported
     - Paging
     - Memory Allocation (it's sucks :P)
     - Choose custom Bootloader or Grub bootloader
-    - Interrupts (keyboard, clock etc... (irq{0...8}))
+    - Interrupts (keyboard, clock etc... (irq{0...7}))
     - CPU Exceptions (pagefault, zero div, etc...)
 
