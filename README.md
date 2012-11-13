@@ -1,9 +1,9 @@
 Kaminou Kernel
 ==============
 
-Juste a another kernel from scratch who's not finished...
-Normally I had not want to release this project, but he is dying in a
-folder. This project was just for understanding how works the kernel.
+Just another (unfinished) kernel from scratch...
+At first I didn't plan on releasing this project, but it's dying in a
+directory. This project was just for understanding how the kernel works.
 
 The kernel works only for x86 32 bits.
 
@@ -33,4 +33,4 @@ Features supported
     - Choose custom Bootloader or Grub bootloader
     - Interrupts (keyboard, clock etc... (irq{0...7}))
     - CPU Exceptions (pagefault, zero div, etc...)
-
+    - Syscall
