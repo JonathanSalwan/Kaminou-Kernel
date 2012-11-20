@@ -20,7 +20,7 @@ OBJ = bootgrub
 all: $(OBJ)
 
 bootgrub: bootgrub.asm
-	nasm -f elf -o $@ $^ ;
+	nasm -f elf32 -o $@ $^ ;
 
 clean:
 	rm -f $(OBJ) *.o

@@ -22,8 +22,8 @@
 void kmain(void)
 {
   kVideo_clear_screen();
-  kprintf("[+] Kaminou version v0.1\n");
-  kprintf("[+] by Jonathan Salwan\n\n");
+  printk("[+] Kaminou version v0.1\n");
+  printk("[+] by Jonathan Salwan\n\n");
 
   kGDT_init();
   kIDT_init();
@@ -33,7 +33,7 @@ void kmain(void)
 
   sti();
 
-  kprintf("\nKernel is running !\n");
+  printk("\nKernel is running !\n");
 
   while(1);
 }

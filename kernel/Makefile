@@ -21,7 +21,7 @@ BOOT_O	= ./boot/bootgrub
 
 LIB_O	= ./lib/string.o \
 	  ./lib/kmalloc.o \
-	  ./lib/kprintf.o
+	  ./lib/printk.o
 
 SYS_O   = ./sys/kmain.o \
 	  ./sys/video.o \
@@ -50,7 +50,7 @@ lib:
 	make -C lib
 
 kern:
-	$(LD) -Ttext=100000 --entry=_start $^ $(BOOT_O) $(LIB_O) $(SYS_O) -o kernel
+	$(LD) -m elf_i386 -Ttext=100000 --entry=_start $^ $(BOOT_O) $(LIB_O) $(SYS_O) -o kernel
 
 fclean:
 	make -C ./boot clean

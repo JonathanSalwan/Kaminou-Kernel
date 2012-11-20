@@ -20,35 +20,46 @@
 #include "mm.h"
 #include "kmalloc.h"
 
-/* kmalloc sucks++ :). With this version we can't free */
-/* It's just for debug */
+int checkFreeSpace(uint8_t *first, uint32_t size)
+{
+}
+
 void *kmalloc(uint32_t size)
 {
   void *ptr = NULL;
+  struct s_header header;
   static uint8_t *max = NULL;
   static uint8_t *base = NULL;
+  static uint8_t *first = NULL;
 
-  if (!max && !base){
+  if (!max && !base && !first){
     base = (uint8_t *)getPage();
     max = base + PAGE_SIZE;
+    first = base;
   }
 
-  if (base+size < max){
+  if (checkFreeSpace(first, size)){
+  }
+  if (base+size+sizeof(struct s_header) < max){
     ptr = base;
     base += size;
   }
-  else if (size < PAGE_SIZE){
+  else if (size+sizeof(struct s_header) < PAGE_SIZE){
     base = (uint8_t *)getPage();
     max = base + PAGE_SIZE;
     ptr = base;
     base += size;
   }
 
-  return (ptr);
+  header.flags = MAGIC + USED;
+  header.size = size;
+  *(unsigned *)ptr = header.flags;
+  *(unsigned *)(ptr + sizeof(header.flags)) = header.size;
+  return (ptr + sizeof(struct s_header));
 }
 
-/* need a real kmmaloc version for use free() :) */
 void kfree(void *addr)
 {
+  *(unsigned *)(addr - 8) = MAGIC + FREE;
 }
 

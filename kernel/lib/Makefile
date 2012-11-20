@@ -17,11 +17,11 @@
 
 INCLUDE = "../includes/"
 
-CC = gcc -W -Wextra -ansi -nostdlib -nodefaultlibs -I$(INCLUDE)
+CC = gcc -m32 -W -Wextra -ansi -nostdlib -nodefaultlibs -I$(INCLUDE)
 
 OBJ = string.o \
       kmalloc.o \
-      kprintf.o
+      printk.o
 
 all: $(OBJ)
 

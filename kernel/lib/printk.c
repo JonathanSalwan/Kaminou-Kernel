@@ -19,7 +19,7 @@
 #include "types.h"
 #include "video.h"
 
-void kprintf(const char *str, ...)
+void printk(const char *str, ...)
 {
   va_list ap;
   int i;

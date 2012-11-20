@@ -15,12 +15,18 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef   __KMALLOC_H__
 #define   __KMALLOC_H__
 
-static uint8_t *__base = NULL;
-static uint8_t *__top = NULL;
+#include "stdlib.h"
+
+#define MAGIC 0x4B4D4D00
+
+struct s_header
+{
+  unsigned flags;
+  unsigned size;
+};
 
 void *kmalloc(uint32_t size);
 void kfree(void *addr);

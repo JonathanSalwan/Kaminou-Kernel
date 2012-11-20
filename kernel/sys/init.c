@@ -49,8 +49,8 @@ void kGDT_init(void)
   kgdtr.base  = (uint32_t)&kgdt;
 
   loadGDT();
-  kprintf("* Init Global Descriptor Table Kernel Land"), kVideo_printOK();
-  kprintf("* Init Global Descriptor Table User Land"), kVideo_printOK();
+  printk("* Init Global Descriptor Table Kernel Land"), kVideo_printOK();
+  printk("* Init Global Descriptor Table User Land"), kVideo_printOK();
 
   ktss.debug_flag = 0x00;
   ktss.io_map = 0x00;
@@ -58,10 +58,10 @@ void kGDT_init(void)
   ktss.ss0 = 0x18;            /* ss  ring 0 kernel land */
 
   loadTR();
-  kprintf("* Init Task State Segment"), kVideo_printOK();
+  printk("* Init Task State Segment"), kVideo_printOK();
 
   initTSS();
-  kprintf("* Init Task Register"), kVideo_printOK();
+  printk("* Init Task Register"), kVideo_printOK();
 }
 
 static void setIdt(uint8_t num, uint32_t base, uint16_t sel, uint8_t flags)
@@ -113,7 +113,7 @@ void kIDT_init(void)
   kidtr.base = (uint32_t)&kidt;
   loadIDT();
 
-  kprintf("* Init Interrupt Descriptor Table"), kVideo_printOK();
+  printk("* Init Interrupt Descriptor Table"), kVideo_printOK();
 }
 
 void kPIC_init(void)
@@ -135,5 +135,5 @@ void kPIC_init(void)
   outb(MASTER_B, 0x0);
   outb(SLAVE_B,  0x0);
 
-  kprintf("* Init Programmable interrupt controler"), kVideo_printOK();
+  printk("* Init Programmable interrupt controler"), kVideo_printOK();
 }

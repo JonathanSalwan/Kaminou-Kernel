@@ -25,7 +25,7 @@ void sys_exit(void)
     return ; /* normally, never go here */
 
   cli();
-  kprintf("pid = %d\n", current_proc->pid);
+  printk("pid = %d\n", current_proc->pid);
   current_proc->back->next = current_proc->next;
   current_proc->next->back = current_proc->back;
   current_proc = current_proc->next;
