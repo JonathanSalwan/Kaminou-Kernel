@@ -20,13 +20,39 @@
 #include "mm.h"
 #include "kmalloc.h"
 
-int checkFreeSpace(uint8_t *first, uint32_t size)
+void *checkFreeSpace(uint8_t *first, uint32_t size)
 {
+  struct s_header header;
+  static uint8_t *ptr;
+
+  ptr = first;
+  header.flags = *(unsigned *)ptr;
+  header.size = *(unsigned *)(ptr + sizeof(header.flags));
+  while ((header.flags >> 8) == MAGIC){
+    if ((header.flags & 0x01) == FREE && (size + sizeof(struct s_header)) < header.size){
+
+      if ((header.size - (size + sizeof(struct s_header))) > sizeof(struct s_header)){
+        *(unsigned *)(ptr + size) = (MAGIC << 8);
+        *(unsigned *)(ptr + size + sizeof(header.flags)) = (header.size - (size + sizeof(struct s_header)));
+      }
+
+      header.flags = (MAGIC << 8) + USED;
+      header.size = size;
+      *(unsigned *)ptr = header.flags;
+      *(unsigned *)(ptr + sizeof(header.flags)) = header.size;
+      return (ptr);
+    }
+    ptr += header.size;
+    header.flags = *(unsigned *)ptr;
+    header.size = *(unsigned *)(ptr + sizeof(header.flags));
+  }
+  return (NULL);
 }
 
 void *kmalloc(uint32_t size)
 {
   void *ptr = NULL;
+  void *ptrAvailable = NULL;
   struct s_header header;
   static uint8_t *max = NULL;
   static uint8_t *base = NULL;
@@ -38,7 +64,8 @@ void *kmalloc(uint32_t size)
     first = base;
   }
 
-  if (checkFreeSpace(first, size)){
+  if ((ptrAvailable = checkFreeSpace(first, size))){
+    return (ptrAvailable + sizeof(struct s_header));
   }
   if (base+size+sizeof(struct s_header) < max){
     ptr = base;
@@ -51,7 +78,7 @@ void *kmalloc(uint32_t size)
     base += size;
   }
 
-  header.flags = MAGIC + USED;
+  header.flags = (MAGIC << 8) + USED;
   header.size = size;
   *(unsigned *)ptr = header.flags;
   *(unsigned *)(ptr + sizeof(header.flags)) = header.size;
@@ -60,6 +87,6 @@ void *kmalloc(uint32_t size)
 
 void kfree(void *addr)
 {
-  *(unsigned *)(addr - 8) = MAGIC + FREE;
+  *(unsigned *)(addr - 8) = (MAGIC << 8);
 }
 

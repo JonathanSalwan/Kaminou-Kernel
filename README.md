@@ -33,4 +33,4 @@ Features supported
     - Choose custom Bootloader or Grub bootloader
     - Interrupts (keyboard, clock etc... (irq{0...7}))
     - CPU Exceptions (pagefault, zero div, etc...)
-    - Syscall
+    - Syscalls

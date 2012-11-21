@@ -20,7 +20,7 @@
 
 #include "stdlib.h"
 
-#define MAGIC 0x4B4D4D00
+#define MAGIC 0x4B4D4D
 
 struct s_header
 {
