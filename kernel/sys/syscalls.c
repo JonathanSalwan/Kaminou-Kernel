@@ -30,11 +30,6 @@ uint32_t int_syscalls(uint32_t eax, uint32_t ebx, uint32_t ecx,
 {
   uint32_t ret = 0;
 
-  /*
-  if (eax <= SYS_NB)
-    ret = syscall_tables[eax](eax, ebx, ecx, edx, edi, esi);
-  */
-
   switch(eax){
     case SYS_WRITE: ret = sys_write((char *)(ebx), ecx); break;
     case SYS_GETPID: ret = sys_getpid(); break;

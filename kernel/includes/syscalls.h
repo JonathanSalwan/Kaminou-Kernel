@@ -40,22 +40,62 @@ uint32_t  sys_getgid(void);
 void      sys_nice(uint32_t priority);
 void      sys_exit(void);
 
-static sys_func syscall_tables[] =
-{
-  (sys_func)sys_write
-};
-
-#define _write(msg, size)({           \
-    uint32_t _ret = 0;                \
-    __asm__("mov %1, %%ebx\n"         \
-            "mov $0x1, %%eax\n"       \
-            "mov $0x6, %%ecx\n"       \
-            "int $0x80\n"             \
-            "mov %%eax, %0"           \
-            : "=r"(_ret) : "m"(msg)); \
-    _ret;                             \
+#define write(msg, size)({                  \
+    uint32_t _ret = 0;                      \
+    __asm__("mov %1, %%ebx\n"               \
+            "mov $0x1, %%eax\n"             \
+            "mov $0x6, %%ecx\n"             \
+            "int $0x80\n"                   \
+            "mov %%eax, %0"                 \
+            : "=r"(_ret) : "m"(msg));       \
+    _ret;                                   \
 })
 
+#define getpid()({                          \
+    uint32_t _ret = 0;                      \
+    __asm__("mov $0x2, %%eax\n"             \
+            "int $0x80\n"                   \
+            "mov %%eax, %0"                 \
+            : "=r"(_ret));                  \
+    _ret;                                   \
+})
+
+#define getuid()({                          \
+    uint32_t _ret = 0;                      \
+    __asm__("mov $0x3, %%eax\n"             \
+            "int $0x80\n"                   \
+            "mov %%eax, %0"                 \
+            : "=r"(_ret));                  \
+    _ret;                                   \
+})
+
+#define getgid()({                          \
+    uint32_t _ret = 0;                      \
+    __asm__("mov $0x4, %%eax\n"             \
+            "int $0x80\n"                   \
+            "mov %%eax, %0"                 \
+            : "=r"(_ret));                  \
+    _ret;                                   \
+})
+
+#define nice(priority)({                    \
+    uint32_t _ret = 0;                      \
+    __asm__("mov $0x5, %%eax\n"             \
+            "mov %1, %%ebx\n"               \
+            "int $0x80\n"                   \
+            "mov %%eax, %0"                 \
+            : "=r"(_ret) : "m"(priority));  \
+    _ret;                                   \
+})
+
+#define exit()({                            \
+    uint32_t _ret = 0;                      \
+    __asm__("mov $0x6, %%eax\n"             \
+            "int $0x80\n"                   \
+            "mov %%eax, %0"                 \
+            : "=r"(_ret));                  \
+    _ret;                                   \
+})
 
 #endif     /* !__SYSCALLS_H__ */
 
