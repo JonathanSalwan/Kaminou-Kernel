@@ -45,13 +45,16 @@ static sys_func syscall_tables[] =
   (sys_func)sys_write
 };
 
-/* FIXME: faire une fonction pour renvoyer eax */
-#define _write(msg, size)             \
-    __asm__("mov %0, %%ebx\n"         \
+#define _write(msg, size)({           \
+    uint32_t _ret = 0;                \
+    __asm__("mov %1, %%ebx\n"         \
             "mov $0x1, %%eax\n"       \
             "mov $0x6, %%ecx\n"       \
-            "int $0x80"               \
-            :: "m"(msg));
+            "int $0x80\n"             \
+            "mov %%eax, %0"           \
+            : "=r"(_ret) : "m"(msg)); \
+    _ret;                             \
+})
 
 
 #endif     /* !__SYSCALLS_H__ */

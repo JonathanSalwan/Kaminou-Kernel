@@ -22,7 +22,11 @@
 
 uint32_t sys_write(char *msg, uint32_t size)
 {
+  int x;
+
+  x = size;
   while (size--){
     kVideo_putchar(*(msg++));
   }
+  return (x);
 }
