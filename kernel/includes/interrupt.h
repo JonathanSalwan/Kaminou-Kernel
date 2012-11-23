@@ -19,6 +19,8 @@
 #ifndef   __INTERRUPT_H__
 #define   __INTERRUPT_H__
 
+#include "syscalls.h"
+
 /* IRQ */
 void  _asm_default(void);
 void  _asm_irq_0(void);

@@ -18,12 +18,18 @@
 #include "kernel.h"
 #include "syscalls.h"
 #include "video.h"
+#include "string.h"
 
-uint32_t sys_write(char *msg, uint32_t size)
+/* TODO: fix bug !?!?! Oo */
+uint32_t sys_read(char *addr, uint32_t size)
 {
-  int x = size;
-
-  while (size--)
-    kVideo_putchar(*(msg++));
-  return (x);
+  kbuffer_keyboard = (uint8_t*)kmalloc(size);
+  memset(kbuffer_keyboard, 0x00, size);
+  ksbuffer_keyboard = kbuffer_keyboard;
+  ksys_readLock = FALSE;
+  while(ksys_readLock != TRUE);
+  memcpy(addr, ksbuffer_keyboard, size);
+  kbuffer_keyboard = ksbuffer_keyboard;
+  kfree(kbuffer_keyboard);
+  return 0;
 }

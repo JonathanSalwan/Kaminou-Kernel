@@ -22,14 +22,15 @@ CC = gcc -m32 -W -Wextra -ansi -nostdlib -nodefaultlibs -I$(INCLUDE)
 OBJ = kmain.o \
       handler_interrupt.o \
       panic.o \
-      interrupt.o \
       syscalls.o \
+      interrupt.o \
       sys_write.o \
       sys_getpid.o \
       sys_getuid.o \
       sys_getgid.o \
       sys_nice.o \
       sys_exit.o \
+      sys_read.o \
       video.o \
       init.o \
       mm.o \

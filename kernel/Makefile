@@ -27,14 +27,15 @@ SYS_O   = ./sys/kmain.o \
 	  ./sys/video.o \
 	  ./sys/handler_interrupt.o \
 	  ./sys/panic.o \
-          ./sys/interrupt.o \
 	  ./sys/syscalls.o \
+          ./sys/interrupt.o \
           ./sys/sys_write.o \
           ./sys/sys_getpid.o \
           ./sys/sys_getuid.o \
           ./sys/sys_getgid.o \
           ./sys/sys_nice.o \
           ./sys/sys_exit.o \
+          ./sys/sys_read.o \
 	  ./sys/init.o \
 	  ./sys/mm.o \
 	  ./sys/process.o \

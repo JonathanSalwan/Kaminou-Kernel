@@ -73,6 +73,7 @@ struct process_s
 
 } __attribute__ ((packed));
 
+/* static ? <- bug ? */
 static uint32_t  nb_proc = 0;
 static uint32_t  pid_g = 0;
 static struct    process_s *current_proc = NULL;

@@ -18,6 +18,7 @@
 #include "kernel.h"
 #include "interrupt.h"
 #include "video.h"
+#include "syscalls.h"
 #include "io.h"
 
 static uint8_t keyboardMap[] =
@@ -137,12 +138,20 @@ void int_irq1(void)
 {
   unsigned char _ret;
 
+  if (ksys_readLock == TRUE)
+    return;
   _ret = inb(0x64);
   while (!(_ret & 0x01))
     _ret = inb(0x64);
   _ret = inb(0x60);
   if (_ret < 0x40)
     kVideo_putchar(keyboardMap[(_ret - 1) * 4]);
+  if (keyboardMap[(_ret - 1) * 4] == '\n')
+    ksys_readLock = TRUE;
+  else{
+    *kbuffer_keyboard = keyboardMap[(_ret - 1) * 4];
+    kbuffer_keyboard++;
+  }
 }
 
 /* IRQ 2 */
