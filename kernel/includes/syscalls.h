@@ -19,19 +19,18 @@
 #ifndef   __SYSCALLS_H__
 #define   __SYSCALLS_H__
 
-# define SYS_NB       0x05
-
 # define SYS_WRITE    0x01
 # define SYS_GETPID   0x02
 # define SYS_GETUID   0x03
 # define SYS_GETGID   0x04
 # define SYS_NICE     0x05
 # define SYS_EXIT     0x06
+# define SYS_READ     0x07
 
 #include "types.h"
-#include <stdarg.h>
 
-typedef uint32_t (*sys_func)(uint32_t eax, ...);
+#define TRUE  1
+#define FALSE !TRUE
 
 uint32_t  sys_write(char *msg, uint32_t size);
 uint32_t  sys_getpid(void);
@@ -39,15 +38,24 @@ uint32_t  sys_getuid(void);
 uint32_t  sys_getgid(void);
 void      sys_nice(uint32_t priority);
 void      sys_exit(void);
+uint32_t  sys_read(char *addr, uint32_t size);
+
+/* sys_read enable and disable this variable */
+/* when this variable is TRUE, the irq1 is ignored */
+uint32_t ksys_readLock;
+uint8_t  *ksbuffer_keyboard;
+uint8_t  *kbuffer_keyboard;
 
 #define write(msg, size)({                  \
     uint32_t _ret = 0;                      \
     __asm__("mov %1, %%ebx\n"               \
             "mov $0x1, %%eax\n"             \
-            "mov $0x6, %%ecx\n"             \
+            "mov %2, %%ecx\n"               \
             "int $0x80\n"                   \
             "mov %%eax, %0"                 \
-            : "=r"(_ret) : "m"(msg));       \
+            : "=r"(_ret)                    \
+            : "m"(msg),                     \
+              "i"(size));                   \
     _ret;                                   \
 })
 
@@ -84,7 +92,7 @@ void      sys_exit(void);
             "mov %1, %%ebx\n"               \
             "int $0x80\n"                   \
             "mov %%eax, %0"                 \
-            : "=r"(_ret) : "m"(priority));  \
+            : "=r"(_ret) : "i"(priority));  \
     _ret;                                   \
 })
 
@@ -94,6 +102,19 @@ void      sys_exit(void);
             "int $0x80\n"                   \
             "mov %%eax, %0"                 \
             : "=r"(_ret));                  \
+    _ret;                                   \
+})
+
+#define read(addr, size)({                  \
+    uint32_t _ret = 0;                      \
+    __asm__("mov %1, %%ebx\n"               \
+            "mov $0x7, %%eax\n"             \
+            "mov %2, %%ecx\n"               \
+            "int $0x80\n"                   \
+            "mov %%eax, %0"                 \
+            : "=r"(_ret)                    \
+            : "m"(addr),                    \
+              "n"(size));                   \
     _ret;                                   \
 })
 

@@ -37,6 +37,7 @@ uint32_t int_syscalls(uint32_t eax, uint32_t ebx, uint32_t ecx,
     case SYS_GETGID: ret = sys_getgid(); break;
     case SYS_NICE: sys_nice(ebx); break;
     case SYS_EXIT: sys_exit(); break;
+    case SYS_READ: sys_read((char *)(ebx), ecx); break;
     default: break;
     }
 
