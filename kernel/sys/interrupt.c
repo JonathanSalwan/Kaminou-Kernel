@@ -144,6 +144,8 @@ void int_irq1(void)
   while (!(_ret & 0x01))
     _ret = inb(0x64);
   _ret = inb(0x60);
+  if (_ret & 0x80)
+    return;
   if (_ret < 0x40)
     kVideo_putchar(keyboardMap[(_ret - 1) * 4]);
   if (keyboardMap[(_ret - 1) * 4] == '\n')

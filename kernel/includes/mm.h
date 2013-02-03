@@ -95,8 +95,8 @@ union addr_u
 uint32_t  *kpage_dir;                        /* Page directory */
 uint32_t  *kpage_tab;                        /* Page Table */
 
-static uint32_t  nb_page = 0;               /* Number of pages used */
-static uint32_t  kmm[MAX_PAGE] = {FREE};
+extern uint32_t  nb_page;               /* Number of pages used */
+extern uint32_t  kmm[];
 
 #endif     /* !__MM_H__ */
 

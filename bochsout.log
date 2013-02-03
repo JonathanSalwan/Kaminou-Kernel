@@ -31,53 +31,53 @@
 00000000000i[     ]   SB16 support: yes
 00000000000i[     ]   USB support: no
 00000000000i[     ]   VGA extension support: vbe cirrus
-00000000000i[MEM0 ] allocated memory at 0x7febd9580010. after alignment, vector=0x7febd9581000
+00000000000i[MEM0 ] allocated memory at 0x7f9306084010. after alignment, vector=0x7f9306085000
 00000000000i[MEM0 ] 512.00MB
 00000000000i[MEM0 ] mem block size = 0x00100000, blocks=512
 00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/usr/share/bochs/BIOS-bochs-latest')
 00000000000i[MEM0 ] rom at 0xc0000/40448 ('/usr/share/bochs/VGABIOS-lgpl-latest')
-00000000000i[     ] lt_dlhandle is 0x24974a0
+00000000000i[     ] lt_dlhandle is 0x173c4a0
 00000000000i[PLGIN] loaded plugin libbx_cmos.la
-00000000000i[     ] lt_dlhandle is 0x24976a0
+00000000000i[     ] lt_dlhandle is 0x173c6a0
 00000000000i[PLGIN] loaded plugin libbx_dma.la
-00000000000i[     ] lt_dlhandle is 0x2498020
+00000000000i[     ] lt_dlhandle is 0x173d020
 00000000000i[PLGIN] loaded plugin libbx_pic.la
-00000000000i[     ] lt_dlhandle is 0x2499080
+00000000000i[     ] lt_dlhandle is 0x173e080
 00000000000i[PLGIN] loaded plugin libbx_pit.la
-00000000000i[     ] lt_dlhandle is 0x2499300
+00000000000i[     ] lt_dlhandle is 0x173e300
 00000000000i[PLGIN] loaded plugin libbx_vga.la
-00000000000i[     ] lt_dlhandle is 0x249a280
+00000000000i[     ] lt_dlhandle is 0x173f280
 00000000000i[PLGIN] loaded plugin libbx_floppy.la
-00000000000i[     ] lt_dlhandle is 0x2499460
+00000000000i[     ] lt_dlhandle is 0x173e460
 00000000000i[PLGIN] loaded plugin libbx_pci.la
-00000000000i[     ] lt_dlhandle is 0x249aa90
+00000000000i[     ] lt_dlhandle is 0x173fa90
 00000000000i[PLGIN] loaded plugin libbx_pci2isa.la
-00000000000i[     ] lt_dlhandle is 0x249c1e0
+00000000000i[     ] lt_dlhandle is 0x17411e0
 00000000000i[PLGIN] loaded plugin libbx_unmapped.la
-00000000000i[     ] lt_dlhandle is 0x249cc30
+00000000000i[     ] lt_dlhandle is 0x1741c30
 00000000000i[PLGIN] loaded plugin libbx_biosdev.la
-00000000000i[     ] lt_dlhandle is 0x249d640
+00000000000i[     ] lt_dlhandle is 0x1742640
 00000000000i[PLGIN] loaded plugin libbx_speaker.la
-00000000000i[     ] lt_dlhandle is 0x249d920
+00000000000i[     ] lt_dlhandle is 0x1742920
 00000000000i[PLGIN] loaded plugin libbx_extfpuirq.la
-00000000000i[     ] lt_dlhandle is 0x249e720
+00000000000i[     ] lt_dlhandle is 0x1743720
 00000000000i[PLGIN] loaded plugin libbx_gameport.la
-00000000000i[     ] lt_dlhandle is 0x249ea10
+00000000000i[     ] lt_dlhandle is 0x1743a10
 00000000000i[PLGIN] loaded plugin libbx_iodebug.la
-00000000000i[     ] lt_dlhandle is 0x249f8a0
+00000000000i[     ] lt_dlhandle is 0x17448a0
 00000000000i[PLGIN] loaded plugin libbx_pci_ide.la
-00000000000i[     ] lt_dlhandle is 0x24a0300
+00000000000i[     ] lt_dlhandle is 0x1745300
 00000000000i[PLGIN] loaded plugin libbx_ioapic.la
-00000000000i[     ] lt_dlhandle is 0x24a0d00
+00000000000i[     ] lt_dlhandle is 0x1745d00
 00000000000i[PLGIN] loaded plugin libbx_keyboard.la
-00000000000i[     ] lt_dlhandle is 0x24a1590
+00000000000i[     ] lt_dlhandle is 0x1746590
 00000000000i[PLGIN] loaded plugin libbx_harddrv.la
-00000000000i[     ] lt_dlhandle is 0x24a1750
+00000000000i[     ] lt_dlhandle is 0x1746750
 00000000000i[PLGIN] loaded plugin libbx_serial.la
-00000000000i[     ] lt_dlhandle is 0x24b4660
+00000000000i[     ] lt_dlhandle is 0x1759660
 00000000000i[PLGIN] loaded plugin libbx_parallel.la
 00000000000i[CMOS ] Using local time for initial clock
-00000000000i[CMOS ] Setting initial clock to: Fri Nov 23 16:48:49 2012 (time0=1353685729)
+00000000000i[CMOS ] Setting initial clock to: Fri Nov 23 17:01:03 2012 (time0=1353686463)
 00000000000i[DMA  ] channel 4 used by cascade
 00000000000i[DMA  ] channel 2 used by Floppy Drive
 00000000000i[FDD  ] fd0: './floppy.img' ro=0, h=2,t=80,spt=18
@@ -157,68 +157,91 @@
 00000000000i[     ] set SIGINT handler to bx_debug_ctrlc_handler
 00000003305i[BIOS ] $Revision: 1.247 $ $Date: 2010/04/04 19:33:50 $
 00000050000e[XGUI ] xkeypress(): keysym ffeb unhandled!
-00000337574i[KBD  ] reset-disable command received
-00000487284i[VBIOS] VGABios $Id: vgabios.c,v 1.69 2009/04/07 18:18:20 vruppert Exp $
-00000487355i[CLVGA] VBE known Display Interface b0c0
-00000487387i[CLVGA] VBE known Display Interface b0c5
-00000490312i[VBIOS] VBE Bios $Id: vbe.c,v 1.62 2009/01/25 15:46:25 vruppert Exp $
-00000803001i[BIOS ] Starting rombios32
-00000803498i[BIOS ] Shutdown flag 0
-00000804188i[BIOS ] ram_size=0x20000000
-00000804693i[BIOS ] ram_end=512MB
-00001300245i[BIOS ] Found 1 cpu(s)
-00001319514i[BIOS ] bios_table_addr: 0x000fbc18 end=0x000fcc00
-00001319617i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
-00001647314i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
-00001975242i[P2I  ] PCI IRQ routing: PIRQA# set to 0x0b
-00001975263i[P2I  ] PCI IRQ routing: PIRQB# set to 0x09
-00001975284i[P2I  ] PCI IRQ routing: PIRQC# set to 0x0b
-00001975305i[P2I  ] PCI IRQ routing: PIRQD# set to 0x09
-00001975315i[P2I  ] write: ELCR2 = 0x0a
-00001976200i[BIOS ] PIIX3/PIIX4 init: elcr=00 0a
-00001984116i[BIOS ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
-00001986678i[BIOS ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
-00001989079i[BIOS ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
-00001989309i[PIDE ] new BM-DMA address: 0xc000
-00001990013i[BIOS ] region 4: 0x0000c000
-00001999342i[BIOS ] MP table addr=0x000fbcf0 MPC table addr=0x000fbc20 size=0xd0
-00002001401i[BIOS ] SMBIOS table addr=0x000fbd00
-00002001440i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
-00002002284i[BIOS ] bios_table_cur_addr: 0x000fbe1c
+00000375057i[KBD  ] reset-disable command received
+00000524805i[VBIOS] VGABios $Id: vgabios.c,v 1.69 2009/04/07 18:18:20 vruppert Exp $
+00000524876i[CLVGA] VBE known Display Interface b0c0
+00000524908i[CLVGA] VBE known Display Interface b0c5
+00000527833i[VBIOS] VBE Bios $Id: vbe.c,v 1.62 2009/01/25 15:46:25 vruppert Exp $
+00000840522i[BIOS ] Starting rombios32
+00000841019i[BIOS ] Shutdown flag 0
+00000841709i[BIOS ] ram_size=0x20000000
+00000842214i[BIOS ] ram_end=512MB
+00001337742i[BIOS ] Found 1 cpu(s)
+00001357011i[BIOS ] bios_table_addr: 0x000fbc18 end=0x000fcc00
+00001357114i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
+00001684811i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
+00002012739i[P2I  ] PCI IRQ routing: PIRQA# set to 0x0b
+00002012760i[P2I  ] PCI IRQ routing: PIRQB# set to 0x09
+00002012781i[P2I  ] PCI IRQ routing: PIRQC# set to 0x0b
+00002012802i[P2I  ] PCI IRQ routing: PIRQD# set to 0x09
+00002012812i[P2I  ] write: ELCR2 = 0x0a
+00002013697i[BIOS ] PIIX3/PIIX4 init: elcr=00 0a
+00002021613i[BIOS ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00002024175i[BIOS ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00002026576i[BIOS ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00002026806i[PIDE ] new BM-DMA address: 0xc000
+00002027510i[BIOS ] region 4: 0x0000c000
+00002036839i[BIOS ] MP table addr=0x000fbcf0 MPC table addr=0x000fbc20 size=0xd0
+00002038898i[BIOS ] SMBIOS table addr=0x000fbd00
+00002038937i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
+00002039781i[BIOS ] bios_table_cur_addr: 0x000fbe1c
 00002500000i[XGUI ] charmap update. Font Height is 16
-00030600000e[XGUI ] xkeypress(): keysym ffeb unhandled!
-00049500000e[XGUI ] xkeypress(): keysym ffeb unhandled!
-00153228493i[BIOS ] Booting from 0000:7c00
-00276884698i[BIOS ] int13_harddisk: function 41, unmapped device for ELDL=80
-00276889474i[BIOS ] int13_harddisk: function 08, unmapped device for ELDL=80
-00276894124i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
-00619500000p[XGUI ] >>PANIC<< POWER button turned off.
-00619500000i[CPU0 ] CPU is in protected mode (active)
-00619500000i[CPU0 ] CS.d_b = 32 bit
-00619500000i[CPU0 ] SS.d_b = 32 bit
-00619500000i[CPU0 ] EFER   = 0x00000000
-00619500000i[CPU0 ] | RAX=0000000000000000  RBX=000000000002eac4
-00619500000i[CPU0 ] | RCX=0000000000000001  RDX=00000000000003d5
-00619500000i[CPU0 ] | RSP=0000000000200000  RBP=00000000001ff000
-00619500000i[CPU0 ] | RSI=000000000002ec4d  RDI=000000000002ec3b
-00619500000i[CPU0 ] |  R8=0000000000000000   R9=0000000000000000
-00619500000i[CPU0 ] | R10=0000000000000000  R11=0000000000000000
-00619500000i[CPU0 ] | R12=0000000000000000  R13=0000000000000000
-00619500000i[CPU0 ] | R14=0000000000000000  R15=0000000000000000
-00619500000i[CPU0 ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf ZF af PF cf
-00619500000i[CPU0 ] | SEG selector     base    limit G D
-00619500000i[CPU0 ] | SEG sltr(index|ti|rpl)     base    limit G D
-00619500000i[CPU0 ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-00619500000i[CPU0 ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00619500000i[CPU0 ] |  SS:0018( 0003| 0|  0) 00000000 00000fff 1 1
-00619500000i[CPU0 ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00619500000i[CPU0 ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00619500000i[CPU0 ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00619500000i[CPU0 ] |  MSR_FS_BASE:0000000000000000
-00619500000i[CPU0 ] |  MSR_GS_BASE:0000000000000000
-00619500000i[CPU0 ] | RIP=000000000010055c (000000000010055c)
-00619500000i[CPU0 ] | CR0=0xe0000011 CR2=0x0000000000000000
-00619500000i[CPU0 ] | CR3=0x00020000 CR4=0x00000000
-00619500000i[CMOS ] Last time is 1353685741 (Fri Nov 23 16:49:01 2012)
-00619500000i[XGUI ] Exit
-00619500000i[CTRL ] quit_sim called with exit code 1
+00027000000e[XGUI ] xkeypress(): keysym ffeb unhandled!
+00153228490i[BIOS ] Booting from 0000:7c00
+00276884695i[BIOS ] int13_harddisk: function 41, unmapped device for ELDL=80
+00276889471i[BIOS ] int13_harddisk: function 08, unmapped device for ELDL=80
+00276894121i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00724800000i[KBD  ] internal keyboard buffer full, ignoring scancode.(1c)
+00726850000i[KBD  ] internal keyboard buffer full, ignoring scancode.(9c)
+00728850000i[KBD  ] internal keyboard buffer full, ignoring scancode.(1c)
+00730500000i[KBD  ] internal keyboard buffer full, ignoring scancode.(9c)
+00732600000i[KBD  ] internal keyboard buffer full, ignoring scancode.(1c)
+00734900000i[KBD  ] internal keyboard buffer full, ignoring scancode.(9c)
+00740250000i[KBD  ] internal keyboard buffer full, ignoring scancode.(20)
+00742100000i[KBD  ] internal keyboard buffer full, ignoring scancode.(a0)
+00743350000i[KBD  ] internal keyboard buffer full, ignoring scancode.(1c)
+00744400000i[KBD  ] internal keyboard buffer full, ignoring scancode.(20)
+00744950000i[KBD  ] internal keyboard buffer full, ignoring scancode.(9c)
+00745900000i[KBD  ] internal keyboard buffer full, ignoring scancode.(a0)
+00747150000i[KBD  ] internal keyboard buffer full, ignoring scancode.(1c)
+00747600000i[KBD  ] internal keyboard buffer full, ignoring scancode.(20)
+00748450000i[KBD  ] internal keyboard buffer full, ignoring scancode.(9c)
+00748900000i[KBD  ] internal keyboard buffer full, ignoring scancode.(a0)
+00750450000i[KBD  ] internal keyboard buffer full, ignoring scancode.(1c)
+00750850000i[KBD  ] internal keyboard buffer full, ignoring scancode.(20)
+00752000000i[KBD  ] internal keyboard buffer full, ignoring scancode.(9c)
+00752000000i[KBD  ] internal keyboard buffer full, ignoring scancode.(a0)
+00753400000i[KBD  ] internal keyboard buffer full, ignoring scancode.(1c)
+00753850000i[KBD  ] internal keyboard buffer full, ignoring scancode.(20)
+00755550000i[KBD  ] internal keyboard buffer full, ignoring scancode.(9c)
+00755550000i[KBD  ] internal keyboard buffer full, ignoring scancode.(a0)
+00821400000p[XGUI ] >>PANIC<< POWER button turned off.
+00821400000i[CPU0 ] CPU is in protected mode (active)
+00821400000i[CPU0 ] CS.d_b = 32 bit
+00821400000i[CPU0 ] SS.d_b = 32 bit
+00821400000i[CPU0 ] EFER   = 0x00000000
+00821400000i[CPU0 ] | RAX=0000000000000000  RBX=000000000002eac4
+00821400000i[CPU0 ] | RCX=0000000000000001  RDX=00000000000003d5
+00821400000i[CPU0 ] | RSP=0000000000200000  RBP=00000000001ff000
+00821400000i[CPU0 ] | RSI=000000000002ec4d  RDI=000000000002ec3b
+00821400000i[CPU0 ] |  R8=0000000000000000   R9=0000000000000000
+00821400000i[CPU0 ] | R10=0000000000000000  R11=0000000000000000
+00821400000i[CPU0 ] | R12=0000000000000000  R13=0000000000000000
+00821400000i[CPU0 ] | R14=0000000000000000  R15=0000000000000000
+00821400000i[CPU0 ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf ZF af PF cf
+00821400000i[CPU0 ] | SEG selector     base    limit G D
+00821400000i[CPU0 ] | SEG sltr(index|ti|rpl)     base    limit G D
+00821400000i[CPU0 ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+00821400000i[CPU0 ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00821400000i[CPU0 ] |  SS:0018( 0003| 0|  0) 00000000 00000fff 1 1
+00821400000i[CPU0 ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00821400000i[CPU0 ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00821400000i[CPU0 ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00821400000i[CPU0 ] |  MSR_FS_BASE:0000000000000000
+00821400000i[CPU0 ] |  MSR_GS_BASE:0000000000000000
+00821400000i[CPU0 ] | RIP=00000000001004d8 (00000000001004d8)
+00821400000i[CPU0 ] | CR0=0xe0000011 CR2=0x0000000000000000
+00821400000i[CPU0 ] | CR3=0x00020000 CR4=0x00000000
+00821400000i[CMOS ] Last time is 1353686479 (Fri Nov 23 17:01:19 2012)
+00821400000i[XGUI ] Exit
+00821400000i[CTRL ] quit_sim called with exit code 1

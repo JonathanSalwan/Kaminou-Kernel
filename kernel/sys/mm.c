@@ -19,6 +19,9 @@
 #include "stdlib.h"
 #include "kernel.h"
 
+uint32_t  nb_page = 0;               /* Number of pages used */
+uint32_t  kmm[MAX_PAGE] = {FREE};
+
 uint32_t *getPage(void)
 {
   uint32_t i;

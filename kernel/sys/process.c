@@ -21,6 +21,12 @@
 #include "string.h"
 #include "kernel.h"
 
+uint32_t  nb_proc = 0;
+uint32_t  pid_g = 1;
+struct    process_s *current_proc = NULL;
+struct    process_s *first_proc = NULL;
+struct    process_s *last_proc = NULL;
+
 /* create_task() is for execute a function in user mode */
 void create_task(uint8_t *opcode, uint32_t size)
 {
@@ -41,7 +47,7 @@ void create_task(uint8_t *opcode, uint32_t size)
     kmm[PAGE((uint32_t)page)] = FREE;
     return ;
   }
-  proc->pid = pid_g;
+  proc->pid = pid_g++;
   proc->uid = 0;                        /* TODO */
   proc->gid = 0;                        /* TODO */
   proc->name = NULL;                    /* TODO */

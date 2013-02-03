@@ -28,8 +28,14 @@ void sys_exit(void)
   printk("pid = %d\n", current_proc->pid);
   current_proc->back->next = current_proc->next;
   current_proc->next->back = current_proc->back;
+  if (current_proc == first_proc)
+    first_proc = current_proc->next;
+  if (current_proc == last_proc)
+    last_proc = current_proc->back;
   current_proc = current_proc->next;
-  kfree(current_proc);
+  /* Bug, si kfree panic in magic malloc */
+  /* Si comment, cancer dans les taches1 */
+  /*kfree(current_proc);*/
   nb_proc--;
   sti();
 }
