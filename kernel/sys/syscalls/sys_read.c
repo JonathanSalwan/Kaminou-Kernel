@@ -20,11 +20,21 @@
 #include "sys/video.h"
 #include "lib/string.h"
 
+/* sys_read enable and disable this variable */
+/* when this variable is TRUE, the irq1 is ignored */
+uint32_t  ksys_readLock;
+uint32_t  ksys_size;
+uint8_t   *ksbuffer_keyboard;
+uint8_t   *kbuffer_keyboard;
+
 uint32_t sys_read(char *addr, uint32_t size)
 {
   kbuffer_keyboard = (uint8_t*)kmalloc(size);
+  if (!kbuffer_keyboard)
+    return -1;
   memset(kbuffer_keyboard, 0x00, size);
   ksbuffer_keyboard = kbuffer_keyboard;
+  ksys_size = size;
   ksys_readLock = FALSE;
   while(ksys_readLock != TRUE);
   memcpy(addr, ksbuffer_keyboard, size);
@@ -32,3 +42,4 @@ uint32_t sys_read(char *addr, uint32_t size)
   kfree(kbuffer_keyboard);
   return 0;
 }
+

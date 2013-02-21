@@ -18,12 +18,6 @@
 #include "sys/kernel.h"
 #include "sys/syscalls.h"
 
-/* sys_read enable and disable this variable */
-/* when this variable is TRUE, the irq1 is ignored */
-uint32_t  ksys_readLock;
-uint8_t   *ksbuffer_keyboard;
-uint8_t   *kbuffer_keyboard;
-
 /* Syscalls gate */
 /* eax = syscall number */
 /* ebx = arg 1 */

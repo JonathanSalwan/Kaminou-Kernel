@@ -153,6 +153,8 @@ void int_irq1(void)
   if (keyboardMap[(_ret - 1) * 4] == '\n')
     ksys_readLock = TRUE;
   else{
+    if ((kbuffer_keyboard - kbuffer_keyboard) > ksys_size)
+      return;
     *kbuffer_keyboard = keyboardMap[(_ret - 1) * 4];
     kbuffer_keyboard++;
   }

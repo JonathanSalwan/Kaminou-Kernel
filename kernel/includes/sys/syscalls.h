@@ -41,6 +41,7 @@ void      sys_exit(void);
 uint32_t  sys_read(char *addr, uint32_t size);
 
 extern uint32_t  ksys_readLock;
+extern uint32_t  ksys_size;
 extern uint8_t   *ksbuffer_keyboard;
 extern uint8_t   *kbuffer_keyboard;
 
