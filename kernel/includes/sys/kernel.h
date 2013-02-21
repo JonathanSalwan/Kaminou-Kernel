@@ -19,7 +19,7 @@
 #ifndef   __KERNEL_H__
 #define   __KERNEL_H__
 
-#include "types.h"
+#include "lib/types.h"
 
 /* Load Global Description Table */
 # define loadGDT()                      \
@@ -151,9 +151,7 @@ struct idt  kidt[IDT_NUMBERS];
 struct idtr kidtr;
 struct gdt  kgdt[GDT_NUMBERS];
 struct gdtr kgdtr;
-struct tss ktss;
-
-uint32_t kclock;
+struct tss  ktss;
 
 #endif     /* !__KERNEL_H__ */
 

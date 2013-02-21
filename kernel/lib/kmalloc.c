@@ -15,10 +15,10 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "stdlib.h"
-#include "types.h"
-#include "mm.h"
-#include "kmalloc.h"
+#include "lib/stdlib.h"
+#include "lib/types.h"
+#include "sys/mm.h"
+#include "lib/kmalloc.h"
 
 void *checkFreeSpace(uint8_t *first, uint32_t size)
 {

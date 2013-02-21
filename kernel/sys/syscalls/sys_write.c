@@ -15,32 +15,15 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kernel.h"
-#include "syscalls.h"
+#include "sys/kernel.h"
+#include "sys/syscalls.h"
+#include "sys/video.h"
 
-/* Syscalls gate */
-/* eax = syscall number */
-/* ebx = arg 1 */
-/* ecx = arg 2 */
-/* edx = arg 3 */
-/* edi = arg 4 */
-/* esi = arg 5 */
-uint32_t int_syscalls(uint32_t eax, uint32_t ebx, uint32_t ecx,
-                      uint32_t edx, uint32_t edi, uint32_t esi)
+uint32_t sys_write(char *msg, uint32_t size)
 {
-  uint32_t ret = 0;
+  int x = size;
 
-  switch(eax){
-    case SYS_WRITE: ret = sys_write((char *)(ebx), ecx); break;
-    case SYS_GETPID: ret = sys_getpid(); break;
-    case SYS_GETUID: ret = sys_getuid(); break;
-    case SYS_GETGID: ret = sys_getgid(); break;
-    case SYS_NICE: sys_nice(ebx); break;
-    case SYS_EXIT: sys_exit(); break;
-    case SYS_READ: sys_read((char *)(ebx), ecx); break;
-    default: break;
-    }
-
-  return (ret);
+  while (size--)
+    kVideo_putchar(*(msg++));
+  return (x);
 }
-

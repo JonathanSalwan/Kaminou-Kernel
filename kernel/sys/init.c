@@ -15,10 +15,10 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kernel.h"
-#include "string.h"
-#include "interrupt.h"
-#include "io.h"
+#include "sys/kernel.h"
+#include "sys/interrupt.h"
+#include "sys/io.h"
+#include "lib/string.h"
 
 static void setGdt(uint32_t num, uint32_t base, uint32_t limit,
                    uint8_t access, uint8_t gran)

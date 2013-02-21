@@ -15,8 +15,8 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kernel.h"
-#include "interrupt.h"
+#include "sys/kernel.h"
+#include "sys/interrupt.h"
 
 void kernel_panic(uint32_t eax, uint32_t ebx, uint32_t ecx,
                   uint32_t edx, uint32_t edi, uint32_t esi,
@@ -44,7 +44,7 @@ void kernel_panic(uint32_t eax, uint32_t ebx, uint32_t ecx,
   kVideo_print("CR3: 0x"), kVideo_printBase(cr3, 16), kVideo_print("\n");
   kVideo_print("CR4: 0x"), kVideo_printBase(cr4, 16), kVideo_print("\n");
   kVideo_print("=============================================================================\n");
-  kVideo_print("[Kernel Panic]");
+  kVideo_print("[Kernel Panic] System halted.");
   hlt();
 }
 

@@ -15,9 +15,9 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "syscalls.h"
-#include "kernel.h"
-#include "process.h"
+#include "sys/syscalls.h"
+#include "sys/kernel.h"
+#include "sys/process.h"
 
 uint32_t sys_getuid(void)
 {

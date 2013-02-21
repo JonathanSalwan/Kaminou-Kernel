@@ -17,7 +17,7 @@
 
 KERN_D = ./kernel
 
-all: kernel
+all: kernel copy
 
 kernel:
 	make -C $(KERN_D)

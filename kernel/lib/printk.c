@@ -16,8 +16,8 @@
 */
 
 #include <stdarg.h>
-#include "types.h"
-#include "video.h"
+#include "lib/types.h"
+#include "sys/video.h"
 
 void printk(const char *str, ...)
 {

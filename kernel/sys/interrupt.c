@@ -15,11 +15,13 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kernel.h"
-#include "interrupt.h"
-#include "video.h"
-#include "syscalls.h"
-#include "io.h"
+#include "sys/kernel.h"
+#include "sys/interrupt.h"
+#include "sys/video.h"
+#include "sys/syscalls.h"
+#include "sys/io.h"
+
+static uint32_t jiffies;
 
 static uint8_t keyboardMap[] =
 {
@@ -129,7 +131,7 @@ void int_default(void)
 /* IRQ 0 */
 void int_irq0(void)
 {
-  kclock++;
+  jiffies++;
   scheduler();
 }
 

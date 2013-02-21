@@ -15,11 +15,11 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "mm.h"
-#include "process.h"
-#include "stdlib.h"
-#include "string.h"
-#include "kernel.h"
+#include "sys/mm.h"
+#include "sys/process.h"
+#include "sys/kernel.h"
+#include "lib/stdlib.h"
+#include "lib/string.h"
 
 uint32_t  nb_proc = 0;
 uint32_t  pid_g = 1;

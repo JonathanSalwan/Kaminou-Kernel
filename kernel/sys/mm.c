@@ -15,10 +15,12 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "mm.h"
-#include "stdlib.h"
-#include "kernel.h"
+#include "lib/stdlib.h"
+#include "sys/mm.h"
+#include "sys/kernel.h"
 
+uint32_t  *kpage_dir;                /* Page directory */
+uint32_t  *kpage_tab;                /* Page Table */
 uint32_t  nb_page = 0;               /* Number of pages used */
 uint32_t  kmm[MAX_PAGE] = {FREE};
 

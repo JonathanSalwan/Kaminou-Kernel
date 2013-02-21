@@ -19,8 +19,8 @@
 #ifndef   __PROCESS_H__
 #define   __PROCESS_H__
 
-# include "types.h"
-# include "stdlib.h"
+# include "lib/types.h"
+# include "lib/stdlib.h"
 
 # define SWITCH()                         \
 __asm__(                                  \

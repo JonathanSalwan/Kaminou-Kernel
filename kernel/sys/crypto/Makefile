@@ -15,35 +15,17 @@
 ##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-INCLUDE = "../includes/"
+INCLUDE = "../../includes/"
 
 CC = gcc -m32 -W -Wextra -ansi -nostdlib -nodefaultlibs -I$(INCLUDE)
 
-OBJ = kmain.o \
-      handler_interrupt.o \
-      panic.o \
-      interrupt.o \
-      video.o \
-      init.o \
-      mm.o \
-      process.o \
-      sched.o
+OBJ = md5.o
 
 all: $(OBJ)
-	make -C syscalls
-	make -C crypto
-
-handler_interrupt.o: handler_interrupt.asm
-	nasm -f elf32 -o $@ $^
-
-sched.o: sched.asm
-	nasm -f elf32 -o $@ $^
 
 .o: .c
 	$(CC) -c $^
 
 clean:
-	make -C ./syscalls clean
-	make -C ./crypto clean
 	rm -f *.o
 

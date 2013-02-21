@@ -15,9 +15,9 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kernel.h"
-#include "mm.h"
-#include "syscalls.h"
+#include "sys/kernel.h"
+#include "sys/mm.h"
+#include "sys/syscalls.h"
 
 void kmain(void)
 {

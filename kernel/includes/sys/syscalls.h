@@ -27,7 +27,7 @@
 # define SYS_EXIT     0x06
 # define SYS_READ     0x07
 
-#include "types.h"
+#include "lib/types.h"
 
 #define TRUE  1
 #define FALSE !TRUE
@@ -40,11 +40,9 @@ void      sys_nice(uint32_t priority);
 void      sys_exit(void);
 uint32_t  sys_read(char *addr, uint32_t size);
 
-/* sys_read enable and disable this variable */
-/* when this variable is TRUE, the irq1 is ignored */
-uint32_t ksys_readLock;
-uint8_t  *ksbuffer_keyboard;
-uint8_t  *kbuffer_keyboard;
+extern uint32_t  ksys_readLock;
+extern uint8_t   *ksbuffer_keyboard;
+extern uint8_t   *kbuffer_keyboard;
 
 #define write(msg, size)({                  \
     uint32_t _ret = 0;                      \

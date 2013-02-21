@@ -15,8 +15,8 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "stdlib.h"
-#include "string.h"
+#include "lib/stdlib.h"
+#include "lib/string.h"
 
 size_t strlen(const char *str)
 {

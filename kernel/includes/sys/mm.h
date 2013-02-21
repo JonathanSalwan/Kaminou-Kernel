@@ -19,7 +19,7 @@
 #ifndef   __MM_H__
 #define   __MM_H__
 
-# include "types.h"
+# include "lib/types.h"
 
 # define PAGING_FLAG  0x80000000      /* CR0 - bit 31 */
 # define PAGE_SIZE    0x1000          /* 4096 */
@@ -92,9 +92,8 @@ union addr_u
           ::"m"(kpage_dir)                  \
 );
 
-uint32_t  *kpage_dir;                        /* Page directory */
-uint32_t  *kpage_tab;                        /* Page Table */
-
+extern uint32_t *kpage_dir;
+extern uint32_t  *kpage_tab;
 extern uint32_t  nb_page;               /* Number of pages used */
 extern uint32_t  kmm[];
 

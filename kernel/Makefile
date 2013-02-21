@@ -17,29 +17,32 @@
 
 LD      = ld
 
-BOOT_O	= ./boot/bootgrub
+BOOT_O	=     ./boot/bootgrub
 
-LIB_O	= ./lib/string.o \
-	  ./lib/kmalloc.o \
-	  ./lib/printk.o
+LIB_O	=     ./lib/string.o \
+	      ./lib/kmalloc.o \
+	      ./lib/printk.o
 
-SYS_O   = ./sys/kmain.o \
-	  ./sys/video.o \
-	  ./sys/handler_interrupt.o \
-	  ./sys/panic.o \
-	  ./sys/syscalls.o \
-          ./sys/interrupt.o \
-          ./sys/sys_write.o \
-          ./sys/sys_getpid.o \
-          ./sys/sys_getuid.o \
-          ./sys/sys_getgid.o \
-          ./sys/sys_nice.o \
-          ./sys/sys_exit.o \
-          ./sys/sys_read.o \
-	  ./sys/init.o \
-	  ./sys/mm.o \
-	  ./sys/process.o \
-	  ./sys/sched.o
+SYS_O   =     ./sys/kmain.o \
+	      ./sys/video.o \
+	      ./sys/handler_interrupt.o \
+	      ./sys/panic.o \
+              ./sys/interrupt.o \
+	      ./sys/init.o \
+	      ./sys/mm.o \
+	      ./sys/process.o \
+	      ./sys/sched.o \
+
+SYSCALLS_O =  ./sys/syscalls/syscalls.o \
+              ./sys/syscalls/sys_write.o \
+              ./sys/syscalls/sys_getpid.o \
+              ./sys/syscalls/sys_getuid.o \
+              ./sys/syscalls/sys_getgid.o \
+              ./sys/syscalls/sys_nice.o \
+              ./sys/syscalls/sys_exit.o \
+              ./sys/syscalls/sys_read.o
+
+CRYPTO_O =    ./sys/crypto/md5.o
 
 all: boot lib sys kern
 
@@ -51,7 +54,7 @@ lib:
 	make -C lib
 
 kern:
-	$(LD) -m elf_i386 -Ttext=100000 --entry=_start $^ $(BOOT_O) $(LIB_O) $(SYS_O) -o kernel
+	$(LD) -m elf_i386 -Ttext=100000 --entry=_start $^ $(BOOT_O) $(LIB_O) $(SYS_O) $(SYSCALLS_O) $(CRYPTO_O) -o kernel
 
 fclean:
 	make -C ./boot clean

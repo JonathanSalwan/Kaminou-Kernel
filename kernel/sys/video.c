@@ -15,10 +15,10 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kernel.h"
-#include "string.h"
-#include "video.h"
-#include "io.h"
+#include "sys/kernel.h"
+#include "sys/video.h"
+#include "sys/io.h"
+#include "lib/string.h"
 
 static void kVideo_cursor(char x, char y)
 {
