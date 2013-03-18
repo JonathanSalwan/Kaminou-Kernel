@@ -11,13 +11,22 @@ The kernel works only for x86 32 bits.
 Installation
 ------------
 
-    You need Bochs x86 Emulator (>=2.5.1)
-
     cd ./Kaminou-Kernel
     mkdir ./loop
     make
     make copy
-    make run
+    make run (Only with bochs)
+
+Emu/Vm Tested
+-------------
+
+This 'mini-kernel' has been tested and works with vmware, bochs, qemu and virtualbox.
+This kernel is compiled to Intel 32-bits architecture.
+
+    Vmware 9.0.0.812388  : Create a new VM and set up the floppy image.
+    Bochs 2.4.5	         : Use the bochsrc file
+    Virtualbox 4.2.6     : Create a new VM and set up the floppy image.
+    Qemu 1.2.2	         : qemu-system-i386 -fda ./floppy.img
 
 
 Features supported
